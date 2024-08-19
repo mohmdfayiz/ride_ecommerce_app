@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { ChevronRight, Minus, Plus } from '@/constants/icons'
-import { LinearGradient } from 'expo-linear-gradient'
 import { View, Text, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
+import Toast from 'react-native-toast-message';
 import { useAppSelector, useAppDispatch } from '@/hooks/storeHook'
 import { removeItem, updateQuantity, resetCart } from '@/store/cartSlice'
 import { COUPONS } from '@/constants/data'
-import Toast from 'react-native-toast-message';
-import { router } from 'expo-router'
+import { ChevronRight, Minus, Plus } from '@/constants/icons'
+import { router } from 'expo-router';
 
 const CheckoutBtn = ({ handleCheckout }: { handleCheckout: () => void }) => {
   return (
@@ -33,7 +33,7 @@ const cart = () => {
       type: 'success',
       text1: 'Checkout Successful',
     })
-    dispatch(resetCart())
+    setTimeout(() => { dispatch(resetCart()) }, 2000)
   }
 
   const handleQuantity = (id: string, quantity: number) => {

@@ -1,13 +1,13 @@
+import { useEffect, useState } from 'react'
 import { View, Text, Image, ImageBackground, ScrollView, TouchableOpacity } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import { BlurView } from 'expo-blur'
-import { HomeBg, RoadBike1 } from '@/constants/images'
-import { Road, Mountain, Accessories, Favourite, Battery, Heart } from '@/constants/icons'
-import { PRODUCTS, TABS, CATEGORIES } from '@/constants/data'
 import { Href, Link, router } from 'expo-router'
+import { BlurView } from 'expo-blur'
 import { useAppSelector, useAppDispatch } from '@/hooks/storeHook'
 import { addItem, removeItem } from '@/store/favouriteSlice'
-import { useEffect, useState } from 'react'
+import { HomeBg, RoadBike1 } from '@/constants/images'
+import { Favourite, Heart } from '@/constants/icons'
+import { PRODUCTS, TABS, CATEGORIES } from '@/constants/data'
 
 const Home = () => {
 
@@ -39,13 +39,11 @@ const Home = () => {
       <ScrollView className='p-4'>
 
         {/* banner */}
-        <View className='h-48 w-full'>
-          {/* <LinearGradient colors={['#353F54', 'transparent']} start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} className='rounded-3xl'> */}
+        <View className='h-56 w-full'>
           <BlurView experimentalBlurMethod='dimezisBlurView' tint='dark' intensity={100} className='flex-1 justify-center items-center p-5 rounded-3xl overflow-hidden border-2 border-secondary'>
             <Image source={RoadBike1} className='h-40 w-72' />
-            {/* <Text className='text-gray-500 font-bold text-3xl absolute bottom-4 left-4'>30% Off</Text> */}
+            <Text className='text-gray-400 font-bold text-2xl absolute bottom-3 left-4'>30% Off</Text>
           </BlurView>
-          {/* </LinearGradient> */}
         </View>
 
         {/* filter */}
@@ -59,7 +57,7 @@ const Home = () => {
               </TouchableOpacity>)
               :
               (<TouchableOpacity onPress={() => setFilter('All')} className='h-14 w-14 items-center justify-center rounded-xl border border-secondary bg-tertiary/70' >
-                <Text className='text-white font-psemibold text-base'>All</Text>
+                <Text className='text-gray-400  font-psemibold text-base'>All</Text>
               </TouchableOpacity>)
           }
           {
@@ -120,7 +118,6 @@ const Home = () => {
           ))
         }
       </View>
-
     </View>
   )
 }

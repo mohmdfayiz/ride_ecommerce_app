@@ -1,27 +1,6 @@
-import { router, Stack } from "expo-router";
-import { TouchableOpacity } from "react-native";
-import { Search, ChevronLeft } from "@/constants/icons";
-import { LinearGradient } from "expo-linear-gradient";
-
-const SearchBtn = () => {
-  return (
-    <TouchableOpacity>
-      <LinearGradient colors={['#37B6E9', '#4B4CED']} start={{ x: 0, y: 0.5 }} end={{ x: 0.5, y: 1.2 }} className='rounded-xl w-10 h-10 justify-center items-center'>
-        <Search />
-      </LinearGradient>
-    </TouchableOpacity >
-  )
-}
-
-const BackBtn = () => {
-  return (
-    <TouchableOpacity onPress={() => router.back()} >
-      <LinearGradient colors={['#37B6E9', '#4B4CED']} start={{ x: 0, y: 0.5 }} end={{ x: 0.5, y: 1.2 }} className='rounded-xl w-10 h-10 justify-center items-center'>
-        <ChevronLeft />
-      </LinearGradient>
-    </TouchableOpacity >
-  )
-}
+import { Stack } from "expo-router";
+import BackBtn from "@/components/BackButton";
+import SearchBtn from "@/components/SearchButton";
 
 const ScreenLayout = () => {
   return (
