@@ -61,7 +61,7 @@ const product = () => {
                         <TouchableOpacity onPress={() => setTab('description')} className='px-6 py-2 border border-secondary shadow-inner rounded-lg'><Text className={`font-pregular text-base ${tab === 'description' ? 'text-skyblue' : 'text-gray-500'}`}>Description</Text></TouchableOpacity>
                         <TouchableOpacity onPress={() => setTab('specification')} className='px-6 py-2 border border-secondary shadow-inner rounded-lg'><Text className={`font-pregular text-base ${tab === 'specification' ? 'text-skyblue' : 'text-gray-500'}`}>Specification</Text></TouchableOpacity>
                     </View>
-                    <View className={`${tab ? 'block mt-6 flex-1' : 'hidden'}`}>
+                    <View className={`${tab ? 'block mt-4 flex-1' : 'hidden'}`}>
                         <View className='px-4'>
                             <Text className='text-white font-pbold text-lg'>{product?.name}</Text>
                             <Text className='text-gray-500 font-pregular text-sm mt-2'>{product?.description}</Text>

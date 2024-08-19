@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { View, Text, Image, ImageBackground, ScrollView, TouchableOpacity } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
-import { Href, Link, router } from 'expo-router'
+import { Href, router } from 'expo-router'
 import { BlurView } from 'expo-blur'
+import ProductCard from '@/components/ProductCard'
 import { useAppSelector, useAppDispatch } from '@/hooks/storeHook'
 import { addItem, removeItem } from '@/store/favouriteSlice'
 import { HomeBg, RoadBike1 } from '@/constants/images'
-import { Favourite, Heart } from '@/constants/icons'
 import { PRODUCTS, TABS, CATEGORIES } from '@/constants/data'
 
 const Home = () => {
@@ -77,25 +77,9 @@ const Home = () => {
         </View>
 
         {/* Products */}
-        <View className='flex-row flex-1 flex-wrap mb-5 gap-2 justify-between'>
+        <View className='flex-row flex-1 flex-wrap mb-5 justify-between'>
           {products.map((product) => (
-            <View key={product.id} className='h-56 w-44 relative'>
-              <TouchableOpacity onPress={() => handleFavourite(product.id)} className='absolute z-10 top-4 right-4'>
-                {items.includes(product.id) ? <Favourite /> : <Heart />}
-              </TouchableOpacity>
-              <BlurView experimentalBlurMethod='dimezisBlurView' tint='dark' intensity={100} className='flex-1 overflow-hidden rounded-3xl border border-secondary'>
-                <Link href={`/product/${product.id}` as Href<string>}>
-                  <View className='gap-y-1 p-4'>
-                    <Image source={product.image} className='h-28 w-36 object-fill' />
-                    <View>
-                      <Text className='text-gray-500 font-psemibold'>{product.category}</Text>
-                      <Text className='text-white font-pbold text-base'>{product.name}</Text>
-                      <Text className='text-gray-500 font-psemibold'>${product.price}</Text>
-                    </View>
-                  </View>
-                </Link>
-              </BlurView>
-            </View>
+            <ProductCard product={product} key={product.id} isFavourite={items.includes(product.id)} handleFavourite={handleFavourite} />
           ))}
         </View>
       </ScrollView>
