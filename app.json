@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#242C3B"
     },
     "ios": {
       "supportsTablet": true
@@ -18,8 +18,10 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#242C3B"
+      },
+      "package": "com.ride.app",
+      "versionCode": 1
     },
     "web": {
       "bundler": "metro",
